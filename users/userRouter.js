@@ -123,7 +123,10 @@ router.put("/:id", validateUserId, (req, res) => {
       //     errorMessage: "this user does not exist to update"
       //   });
       // } else {
-      return res.status(200).json(updated);
+      return res.status(200).json({
+        updated: `${updated}`,
+        body: `${req.body.name}`
+      });
       // }
     })
     .catch(error => {

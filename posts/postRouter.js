@@ -79,6 +79,14 @@ router.put("/:id", (req, res) => {
 
 function validatePostId(req, res, next) {
   // do your magic!
+  // Posts.getById(req.body.id).then(post => {
+  //   if (!req.body.id) {
+  //     res.status(404).json({ message: "invalid body id" });
+  //   } else {
+  //     return res.status(201).json(req.body);
+  //   }
+  // });
+  // next();
 }
 
 module.exports = router;

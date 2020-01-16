@@ -23,12 +23,12 @@ router.get("/:id", (req, res) => {
 
   Posts.getById(req.params.id)
     .then(post => {
-      if (post) {
-        return res.status(200).json(post);
-      } else {
+      if (!post) {
         return res.status(404).json({
           errorMessage: "post by the provided ID does not exist"
         });
+      } else {
+        return res.status(200).json(post);
       }
     })
     .catch(error => {

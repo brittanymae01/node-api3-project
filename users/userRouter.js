@@ -100,7 +100,11 @@ router.delete("/:id", validateUserId, (req, res) => {
   // do your magic!
   Users.remove(req.params.id)
     .then(deleted => {
-      return res.status(200).json(deleted);
+      return res.status(200).json({
+        deleted: `${deleted}`,
+        url: `/api/users/${req.params.id}`,
+        operation: `DELETE for user with id ${req.params.id}`
+      });
     })
     .catch(error => {
       console.log(error);
